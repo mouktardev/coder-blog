@@ -6,7 +6,7 @@ highlighter and more,
 ### Includes:
 
 - [Vite](https://vitejs.dev),
-- [vite-plugin-ssr](https://vite-plugin-ssr.com/) handel all Filesystem Routing, Data fetching, Pre-rendering, Layouts, and more.
+- [vite-plugin-ssr](https://vite-plugin-ssr.com/) handle all Filesystem Routing, Data fetching, Pre-rendering, Layouts, and more.
 - [ReactJS](https://reactjs.org)
 - [Tailwindcss](https://tailwindcss.com)
 - [Eslint](https://eslint.org)
