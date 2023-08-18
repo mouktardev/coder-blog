@@ -48,11 +48,9 @@ export function onPageTransitionStart() {
 	// console.log("Page transition start");
 	transition.set(true);
 	// console.log("Is backwards navigation?", pageContext.isBackwardNavigation);
-	// document.querySelector("body")!.classList.add("page-is-transitioning");
 }
 
 export function onPageTransitionEnd() {
 	// console.log("Page transition end");
 	transition.set(false);
-	// document.querySelector("body")!.classList.remove("page-is-transitioning");
 }

@@ -29,7 +29,7 @@ export async function onBeforeRender() {
 			pageProps: {
 				projects: projects,
 			},
-			// The page's title
+			// The page's title & description
 			documentProps: {
 				title: "All projects",
 				description: `This page has ${projects.length} projects to browse`,

@@ -47,14 +47,6 @@ export function LayoutPosts({ children }: Props) {
 					transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
 				/>
 			)}
-			{/* <motion.div
-				key={urlPathname}
-				className="w-full h-full flex justify-center items-center"
-				variants={PageSlide}
-				initial="start"
-				animate="enter"
-				exit="exit"
-			> */}
 			<motion.div
 				key={urlPathname}
 				variants={containerLayout}
@@ -64,7 +56,6 @@ export function LayoutPosts({ children }: Props) {
 			>
 				{children}
 			</motion.div>
-			{/* </motion.div> */}
 		</main>
 	);
 }
