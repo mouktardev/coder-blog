@@ -45,23 +45,7 @@ function getArticles(): Article[] {
 
 export async function prerender() {
 	const articles = getArticles();
-
 	return [
-		{
-			url: "/posts",
-			// We already provide `pageContext` here so that `vite-plugin-ssr`
-			// will *not* have to call the `onBeforeRender()` hook defined
-			// above in this file.
-			pageContext: {
-				pageProps: {
-					articles: articles,
-				},
-				documentProps: {
-					title: "All Posts",
-					description: `This page has ${articles.length} posts to browse`,
-				},
-			},
-		},
 		...articles.map((article) => {
 			const url = `/posts/${article.slug}`;
 			return {
