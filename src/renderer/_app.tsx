@@ -16,11 +16,9 @@ export function App({ pageContext, children }: Props) {
 			<PageContextProvider pageContext={pageContext}>
 				<AnimatePresence initial={false} mode="wait">
 					{Layout.name === "LayoutProjects" ? (
-						<>
-							<LayoutDefault>
-								<Layout>{children}</Layout>
-							</LayoutDefault>
-						</>
+						<LayoutDefault>
+							<Layout>{children}</Layout>
+						</LayoutDefault>
 					) : (
 						<Layout>{children}</Layout>
 					)}
