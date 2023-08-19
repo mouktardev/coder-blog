@@ -9,7 +9,6 @@ import React, { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-
 interface HeadingRendererProps {
 	level: number;
 	children: ReactNode;
@@ -26,7 +25,6 @@ const HeadingRenderer = (props: HeadingRendererProps) => {
 	);
 };
 
-export { LayoutPosts as Layout } from "#/layouts/LayoutPosts";
 export function Page({ article }: { article: Article }) {
 	return (
 		<div className="p-5">

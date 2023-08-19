@@ -12,18 +12,12 @@ type Props = {
 export function App({ pageContext, children }: Props) {
 	const Layout = pageContext.exports.Layout || LayoutDefault;
 	return (
-		// <React.StrictMode>
-		<PageContextProvider pageContext={pageContext}>
-			<AnimatePresence initial={false} mode="wait">
-				{Layout.name === "LayoutProjects" ? (
-					<LayoutDefault>
-						<Layout>{children}</Layout>
-					</LayoutDefault>
-				) : (
+		<React.StrictMode>
+			<PageContextProvider pageContext={pageContext}>
+				<AnimatePresence initial={false} mode="wait">
 					<Layout>{children}</Layout>
-				)}
-			</AnimatePresence>
-		</PageContextProvider>
-		// </React.StrictMode>
+				</AnimatePresence>
+			</PageContextProvider>
+		</React.StrictMode>
 	);
 }

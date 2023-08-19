@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { Button } from "./Button";
 import { Link } from "./Link";
 
-export default function Sidebar() {
+export default function MainMenu() {
 	const isOpen = useStore(open);
 	const [scope, animate] = useAnimate();
 	useEffect(() => {

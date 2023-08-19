@@ -1,25 +1,22 @@
-import { usePageContext } from "#/hook/usePageContext";
-import { Fade, WidthLeft, containerLayout } from "#/util/animation";
+import { Fade, WidthLeft } from "#/util/animation";
 import { motion } from "framer-motion";
 import { ChevronLeft, Clock, Folder } from "lucide-react";
 import { ReactNode, useCallback, useState } from "react";
-import { Button } from "../components/Button";
-import { Link } from "../components/Link";
+import { Button } from "./Button";
+import { Link } from "./Link";
 
 type Props = {
 	children: ReactNode;
 };
 
-export function LayoutProjects({ children }: Props) {
-	const pageContext = usePageContext();
-	const { urlPathname } = pageContext;
+export default function DashboardBar({ children }: Props) {
 	const [showSidebar, setShowSidebar] = useState(false);
 	const toggleSidebar = useCallback(
 		() => setShowSidebar((value) => !value),
 		[]
 	);
 	return (
-		<main className="flex gap-4 p-5">
+		<div className="flex gap-4 p-5">
 			<motion.aside
 				variants={WidthLeft}
 				initial="start"
@@ -65,16 +62,7 @@ export function LayoutProjects({ children }: Props) {
 					))}
 				</nav>
 			</motion.aside>
-			<motion.div
-				key={urlPathname}
-				className="w-full"
-				variants={containerLayout}
-				initial="exit"
-				animate="enter"
-				exit="exit"
-			>
-				{children}
-			</motion.div>
-		</main>
+			{children}
+		</div>
 	);
 }

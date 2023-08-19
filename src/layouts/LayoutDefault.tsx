@@ -1,5 +1,7 @@
+import DashboardBar from "#/components/DashboardBar";
+import { GoBack } from "#/components/GoBack";
 import { Link } from "#/components/Link";
-import Sidebar from "#/components/Sidebar";
+import MainMenu from "#/components/MainMenu";
 import { usePageContext } from "#/hook/usePageContext";
 import { transition } from "#/store/store";
 import { containerLayout } from "#/util/animation";
@@ -18,7 +20,7 @@ export function LayoutDefault({ children }: Props) {
 
 	return (
 		<main className="w-full max-w-5xl mx-auto">
-			<Sidebar />
+			{urlPathname.startsWith("/posts") ? <GoBack /> : <MainMenu />}
 			<div className="p-5">
 				<nav className="flex gap-4 items-center border-t">
 					{[
@@ -52,7 +54,11 @@ export function LayoutDefault({ children }: Props) {
 				animate="enter"
 				exit="exit"
 			>
-				{children}
+				{urlPathname.startsWith("/projects") ? (
+					<DashboardBar>{children}</DashboardBar>
+				) : (
+					children
+				)}
 			</motion.div>
 		</main>
 	);

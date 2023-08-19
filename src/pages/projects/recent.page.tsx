@@ -5,7 +5,7 @@ export function Page() {
 	return (
 		<motion.div
 			variants={slideInLeft}
-			className="flex justify-center items-center flex-1 h-full border"
+			className="flex-1 h-full flex justify-center items-center border"
 		>
 			<p className="text-2xl uppercase font-thin">recent</p>
 		</motion.div>
