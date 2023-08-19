@@ -1,3 +1,4 @@
+import { usePageContext } from "#/hook/usePageContext";
 import { Fade, WidthLeft, containerLayout } from "#/util/animation";
 import { motion } from "framer-motion";
 import { ChevronLeft, Clock, Folder } from "lucide-react";
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export function LayoutProjects({ children }: Props) {
+	const pageContext = usePageContext();
+	const { urlPathname } = pageContext;
 	const [showSidebar, setShowSidebar] = useState(false);
 	const toggleSidebar = useCallback(
 		() => setShowSidebar((value) => !value),
@@ -36,38 +39,36 @@ export function LayoutProjects({ children }: Props) {
 							<ChevronLeft className="h-5 w-5 " />
 						</motion.div>
 					</Button>
-					<Link
-						href="/projects"
-						className="flex items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60 cursor-pointer rounded-md"
-					>
-						<Folder className="w-5 h-5" />
-						<motion.p
-							variants={Fade}
-							animate={showSidebar ? "exit" : "enter"}
-							className="tracking-wide text-sm"
-						>
-							All
-						</motion.p>
-					</Link>
-					<div className="w-full h-[1px] bg-black/10 px-5" />
-					<Link
-						href="/projects/recent"
-						className="flex items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60 cursor-pointer rounded-md"
-					>
-						<Clock className="w-5 h-5" />
-						<motion.p
-							variants={Fade}
-							animate={showSidebar ? "exit" : "enter"}
-							className="tracking-wide text-sm"
-						>
-							Recent
-						</motion.p>
-					</Link>
+					{[
+						{ title: "All", href: "/projects", icon: Folder },
+						{ title: "Recent", href: "/projects/recent", icon: Clock },
+					].map((item, index) => (
+						<div key={index}>
+							<Link
+								href={item.href}
+								className="flex items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60 cursor-pointer rounded-md"
+								activeProps="font-bold"
+							>
+								<item.icon className="w-5 h-5" />
+								<motion.p
+									variants={Fade}
+									animate={showSidebar ? "exit" : "enter"}
+									className="tracking-wide text-sm"
+								>
+									{item.title}
+								</motion.p>
+							</Link>
+							{index === 0 && (
+								<div className="w-full h-[1px] bg-black/10 px-5" />
+							)}
+						</div>
+					))}
 				</nav>
 			</motion.aside>
 			<motion.div
+				key={urlPathname}
+				className="w-full"
 				variants={containerLayout}
-				className="w-full "
 				initial="exit"
 				animate="enter"
 				exit="exit"
