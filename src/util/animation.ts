@@ -1,26 +1,28 @@
 import { Variants } from "framer-motion";
 
 export const containerLayout: Variants = {
-	enter: {
+	animate: {
 		transition: {
-			duration: 0.6,
+			// duration: 0.6,
 			ease: "easeInOut",
-			when: "beforeChildren",
-			staggerChildren: 0.1,
+			// when: "beforeChildren",
+			staggerChildren: 0.5,
+			staggerDirection: -1,
 		},
 	},
-	exit: {
-		transition: {
-			when: "afterChildren",
-			duration: 0.6,
-			staggerChildren: -1,
-		},
-	},
+	// exit: {
+	// 	transition: {
+	// 		when: "afterChildren",
+	// 		duration: 0.6,
+	// 		staggerChildren: -1,
+	// 	},
+	// },
 };
 export const PageSlide: Variants = {
-	start: { x: "100%" },
-	enter: {
+	initial: { x: "100%" },
+	animate: {
 		x: 0,
+		pointerEvents: "auto",
 		transition: {
 			duration: 0.6,
 			ease: "easeInOut",
@@ -39,7 +41,8 @@ export const PageSlide: Variants = {
 };
 
 export const slideInTop: Variants = {
-	enter: {
+	initial: { y: -100, opacity: 0, transition: { ease: "easeOut" } },
+	animate: {
 		y: 0,
 		opacity: 1,
 		transition: { ease: "easeIn" },
@@ -48,7 +51,7 @@ export const slideInTop: Variants = {
 };
 
 export const slideInLeft: Variants = {
-	enter: {
+	animate: {
 		x: 0,
 		opacity: 1,
 		transition: { ease: "easeIn" },
@@ -57,8 +60,8 @@ export const slideInLeft: Variants = {
 };
 
 export const WidthLeft: Variants = {
-	start: { width: "160px" },
-	enter: { width: "54px" },
+	initial: { width: "160px" },
+	animate: { width: "54px" },
 	exit: {
 		width: "160px",
 		transition: {
@@ -69,7 +72,7 @@ export const WidthLeft: Variants = {
 };
 
 export const Fade: Variants = {
-	enter: {
+	animate: {
 		opacity: 1,
 		display: "block",
 		transition: {

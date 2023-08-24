@@ -5,7 +5,7 @@ date: "2023-08-15"
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae"
 image:
   src: /images/post-3.jpg
-  alt: "an image of fragment graffiti on a wall"
+  alt: "an image of a burgundy pice of cloth"
 author:
   name: insert name
   title: job title

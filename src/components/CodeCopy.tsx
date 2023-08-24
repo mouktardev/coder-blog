@@ -27,11 +27,7 @@ export default function CodeCopyBtn({ children }: Props) {
 			)}
 			onClick={handleClick}
 		>
-			{copyOk ? (
-				<ClipboardCheck className="h-5 w-5" />
-			) : (
-				<Clipboard className="h-5 w-5" />
-			)}
+			{copyOk ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
 		</Button>
 	);
 }

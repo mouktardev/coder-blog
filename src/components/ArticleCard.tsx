@@ -1,17 +1,20 @@
-import { Article } from "#/types/types";
-import { slideInTop } from "#/util/animation";
-import { motion } from "framer-motion";
+import { Article } from "#/schema/types";
+import { setPosition } from "#/store/store";
 import Image from "./Image";
 import { Link } from "./Link";
+type Props = {
+	article: Article;
+};
 
-export default function ArticleCard({ article }: { article: Article }) {
+export default function ArticleCard({ article }: Props) {
 	return (
-		<motion.div variants={slideInTop} className="@container">
+		<div className="@container">
 			<div className="grid gap-8 @3xl:grid-cols-2">
 				<Image
+					className="h-full w-full"
 					src={article.image.src}
+					alt={article.image.alt}
 					aspectRatio="rectangle"
-					className="h-full w-full rounded-2xl"
 				/>
 				<div>
 					<div>
@@ -19,10 +22,12 @@ export default function ArticleCard({ article }: { article: Article }) {
 						<Link
 							href={`/posts/${article.slug}`}
 							className="hover:underline underline-offset-8 cursor-pointer"
+							onClick={setPosition}
+							keep-scroll-position="true"
 						>
-							<p className="mt-2 text-3xl font-medium leading-9 tracking-tight">
+							<h1 className="mt-2 text-3xl font-medium tracking-tight">
 								{article.title}
-							</p>
+							</h1>
 						</Link>
 						<p className="mt-3 text-xl leading-8 text-gray-600">
 							{article.summary}
@@ -37,6 +42,6 @@ export default function ArticleCard({ article }: { article: Article }) {
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	);
 }

@@ -1,11 +1,11 @@
 ---
 id: 1
-title: Title 1
+title: Transition with framer motion
 date: "2023-08-13"
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
 image:
   src: /images/post-1.jpg
-  alt: "a collection of lego's with different colors"
+  alt: "pink to blue gradient abstract color folds"
 author:
   name: insert name
   title: job title

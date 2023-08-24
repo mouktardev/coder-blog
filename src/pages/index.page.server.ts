@@ -1,4 +1,4 @@
-import { Article, ArticleSchema } from "#/types/types";
+import { Article, ArticleSchema } from "#/schema/types";
 import fs from "fs";
 import { parse } from "zod-matter";
 

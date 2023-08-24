@@ -1,7 +1,7 @@
+import type { PageContextClient } from "#/hook/types";
 import "#/style/global.css";
 import ReactDOM from "react-dom/client";
 import { transition } from "../store/store";
-import type { PageContextClient } from "../types/types";
 import { getPageSeo } from "../util/getPageSeo";
 import { App } from "./_app";
 

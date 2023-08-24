@@ -1,4 +1,4 @@
-import { ArticleSchema } from "#/types/types";
+import { ArticleSchema } from "#/schema/types";
 import fs from "fs";
 import type { PageContextBuiltIn } from "vite-plugin-ssr/types";
 import { parse } from "zod-matter";

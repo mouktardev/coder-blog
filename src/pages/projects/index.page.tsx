@@ -1,17 +1,13 @@
 import ProjectCard from "#/components/ProjectCard";
-import { Project } from "#/types/types";
-import { slideInLeft } from "#/util/animation";
-import { motion } from "framer-motion";
+import { Project } from "#/schema/types";
 
 export function Page({ projects }: { projects: Project[] }) {
 	return (
-		<motion.div variants={slideInLeft} className="flex-1 border">
-			<div className="flex gap-4 items-center p-5">
-				{projects.map((project, index) => (
-					<ProjectCard key={index} project={project} />
-				))}
-			</div>
-		</motion.div>
+		<div className="flex h-full gap-4 items-center border p-5">
+			{projects.map((project, index) => (
+				<ProjectCard key={index} project={project} />
+			))}
+		</div>
 	);
 }
 

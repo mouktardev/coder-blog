@@ -1,8 +1,7 @@
+import type { PageContext } from "#/hook/types";
 import { LayoutDefault } from "#/layouts/LayoutDefault";
-import { AnimatePresence } from "framer-motion";
 import React from "react";
 import { PageContextProvider } from "../hook/usePageContext";
-import type { PageContext } from "../types/types";
 
 type Props = {
 	pageContext: PageContext;
@@ -14,9 +13,7 @@ export function App({ pageContext, children }: Props) {
 	return (
 		<React.StrictMode>
 			<PageContextProvider pageContext={pageContext}>
-				<AnimatePresence initial={false} mode="wait">
-					<Layout>{children}</Layout>
-				</AnimatePresence>
+				<Layout>{children}</Layout>
 			</PageContextProvider>
 		</React.StrictMode>
 	);

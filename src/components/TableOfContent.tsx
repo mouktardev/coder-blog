@@ -45,7 +45,7 @@ export default function TableOfContent() {
 	}, []);
 
 	return (
-		<ul className="sticky w-64 h-full top-20 overflow-auto p-4 mt-10 space-y-5 border rounded-lg">
+		<ul className="sticky w-64 h-full top-44 overflow-auto p-4 space-y-5 border rounded-lg">
 			{headings.map((heading) => (
 				<li
 					key={heading.id}
@@ -54,10 +54,9 @@ export default function TableOfContent() {
 						"flex gap-2 items-center hover:text-purple-400"
 					)}
 				>
-					{heading.level === 3 && <ChevronRight className="h-4 w-4" />}
+					{heading.level === 3 && <ChevronRight size={20} />}
 					<Link
 						href={`#${heading.id}`}
-						// href={`/posts/${slug}#${heading.id}`}
 						onClick={(e) => {
 							e.preventDefault();
 							document.querySelector(`#${heading.id}`)?.scrollIntoView({

@@ -1,16 +1,13 @@
 import { cn } from "#/util/util";
-import { ReactNode } from "react";
 import { usePageContext } from "../hook/usePageContext";
 
-type Props = {
+type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 	href: string;
-	children?: ReactNode;
 	className?: string;
-	onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 	activeProps?: string;
 };
 
-function Link({ href, children, className, activeProps, onClick }: Props) {
+function Link({ href, className, activeProps, ...props }: Props) {
 	const pageContext = usePageContext();
 	const { urlPathname } = pageContext;
 	const isActive =
@@ -19,10 +16,8 @@ function Link({ href, children, className, activeProps, onClick }: Props) {
 		<a
 			href={href}
 			className={cn(isActive ? activeProps : "", className)}
-			onClick={onClick}
-		>
-			{children}
-		</a>
+			{...props}
+		/>
 	);
 }
 

@@ -1,4 +1,4 @@
-import type { PageContextServer } from "#/types/types";
+import type { PageContextServer } from "#/hook/types";
 import { getPageSeo } from "#/util/getPageSeo";
 import { renderToString } from "react-dom/server";
 import { dangerouslySkipEscape, escapeInject } from "vite-plugin-ssr/server";

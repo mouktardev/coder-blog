@@ -1,20 +1,14 @@
 import { cn } from "#/util/util";
 
-type Props = {
-	src?: string;
-	alt?: string;
+type Props = React.ImgHTMLAttributes<HTMLImageElement> & {
 	aspectRatio?: "portrait" | "square" | "rectangle";
-	width?: number;
-	height?: number;
 	className?: string;
 };
+
 export default function Image({
-	src,
-	alt,
 	aspectRatio = "portrait",
-	width,
-	height,
 	className,
+	...props
 }: Props) {
 	return (
 		<img
@@ -27,11 +21,7 @@ export default function Image({
 					: "square",
 				className
 			)}
-			alt={alt}
-			src={src}
-			width={width}
-			height={height}
-			draggable="false"
+			{...props}
 		/>
 	);
 }

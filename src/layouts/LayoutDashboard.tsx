@@ -1,27 +1,28 @@
-import { Fade, WidthLeft } from "#/util/animation";
-import { motion } from "framer-motion";
+import { Fade, WidthLeft, slideInLeft } from "#/util/animation";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, Clock, Folder } from "lucide-react";
 import { ReactNode, useCallback, useState } from "react";
-import { Button } from "./Button";
-import { Link } from "./Link";
+import { Button } from "../components/Button";
+import { Link } from "../components/Link";
 
 type Props = {
 	children: ReactNode;
+	url: string;
 };
 
-export default function DashboardBar({ children }: Props) {
+export function LayoutDashboard({ children, url }: Props) {
 	const [showSidebar, setShowSidebar] = useState(false);
 	const toggleSidebar = useCallback(
 		() => setShowSidebar((value) => !value),
 		[]
 	);
 	return (
-		<div className="flex gap-4 p-5">
+		<div className="w-full h-[400px] max-w-5xl mx-auto flex gap-4 p-5">
 			<motion.aside
+				className="sticky top-0 overflow-hidden p-2 border"
 				variants={WidthLeft}
-				initial="start"
-				animate={showSidebar ? "enter" : "exit"}
-				className="sticky top-0 overflow-hidden p-2 backdrop-blur-lg bg-white/30 border"
+				initial="initial"
+				animate={showSidebar ? "animate" : "exit"}
 			>
 				<nav className="flex flex-col gap-4">
 					<Button
@@ -33,7 +34,7 @@ export default function DashboardBar({ children }: Props) {
 							animate={showSidebar ? { rotate: 180 } : { rotate: 0 }}
 							transition={{ ease: "linear" }}
 						>
-							<ChevronLeft className="h-5 w-5 " />
+							<ChevronLeft size={20} />
 						</motion.div>
 					</Button>
 					{[
@@ -46,11 +47,11 @@ export default function DashboardBar({ children }: Props) {
 								className="flex items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60 cursor-pointer rounded-md"
 								activeProps="font-bold"
 							>
-								<item.icon className="w-5 h-5" />
+								<item.icon size={20} />
 								<motion.p
-									variants={Fade}
-									animate={showSidebar ? "exit" : "enter"}
 									className="tracking-wide text-sm"
+									variants={Fade}
+									animate={showSidebar ? "exit" : "animate"}
 								>
 									{item.title}
 								</motion.p>
@@ -62,7 +63,18 @@ export default function DashboardBar({ children }: Props) {
 					))}
 				</nav>
 			</motion.aside>
-			{children}
+			<AnimatePresence initial={false} mode="wait">
+				<motion.div
+					key={url}
+					className="flex-1"
+					variants={slideInLeft}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+				>
+					{children}
+				</motion.div>
+			</AnimatePresence>
 		</div>
 	);
 }
