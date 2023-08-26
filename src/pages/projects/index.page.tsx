@@ -3,7 +3,7 @@ import { Project } from "#/schema/types";
 
 export function Page({ projects }: { projects: Project[] }) {
 	return (
-		<div className="flex h-full gap-4 items-center border p-5">
+		<div className="grid lg:grid-cols-3 h-full gap-4 border p-5">
 			{projects.map((project, index) => (
 				<ProjectCard key={index} project={project} />
 			))}

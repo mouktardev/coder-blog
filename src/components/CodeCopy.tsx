@@ -1,18 +1,19 @@
 import { cn } from "#/util/util";
 import { Clipboard, ClipboardCheck } from "lucide-react";
-import { ReactNode, useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import { Button } from "./Button";
 
 type Props = {
-	children: ReactNode;
+	children: ReactNode[];
 };
 
 export default function CodeCopyBtn({ children }: Props) {
 	const [copyOk, setCopyOk] = useState(false);
 
+	const firstChild = children[0] as ReactElement;
+
 	const handleClick = () => {
-		// @ts-ignore: children index type error
-		navigator.clipboard.writeText(children[0].props.children[0]);
+		navigator.clipboard.writeText(firstChild.props.children);
 		setCopyOk(true);
 		setTimeout(() => {
 			setCopyOk(false);

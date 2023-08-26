@@ -1,7 +1,10 @@
 import ArticleCard from "#/components/ArticleCard";
+import Image from "#/components/Image";
 import { Article } from "#/schema/types";
 import { motion } from "framer-motion";
 import { Framer } from "lucide-react";
+import ViteSSRlogo from "/vite-plugin-ssr-logo.svg";
+import Vitelogo from "/vite.svg";
 
 type Props = {
 	articles: Article[];
@@ -22,12 +25,14 @@ export function Page({ articles }: Props) {
 				<h1 className="text-6xl font-medium uppercase leading-tight tracking-tight">
 					Coder - Blog
 				</h1>
+				<Image src={Vitelogo} className="w-8 h-8" />
+				<Image src={ViteSSRlogo} className="w-8 h-8" />
 				<Framer size={28} />
 			</div>
 			<p className="text-justify text-xl max-w-2xl leading-7 tracking-wide mt-6">
-				File based routing, page transitions, mix SSR + SPA , layouts,
-				pre-render and Generate SSG Dynamic pages, tailwindCSS, Markdown content
-				collection Syntax highlighter and more.
+				File based routing, SSR + SPA, page transitions, framer motion
+				animation, layouts, pre-render and Generate SSG Dynamic pages,
+				tailwindCSS, Markdown content collection Syntax highlighter and more.
 			</p>
 			<div className="mt-16 pb-32">
 				<ArticleCard article={articles[0]} />

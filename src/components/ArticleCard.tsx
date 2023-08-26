@@ -11,7 +11,7 @@ export default function ArticleCard({ article }: Props) {
 		<div className="@container">
 			<div className="grid gap-8 @3xl:grid-cols-2">
 				<Image
-					className="h-full w-full"
+					className="h-full w-full rounded-2xl"
 					src={article.image.src}
 					alt={article.image.alt}
 					aspectRatio="rectangle"

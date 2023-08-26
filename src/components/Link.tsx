@@ -15,7 +15,7 @@ function Link({ href, className, activeProps, ...props }: Props) {
 	return (
 		<a
 			href={href}
-			className={cn(isActive ? activeProps : "", className)}
+			className={cn(isActive && activeProps, className)}
 			{...props}
 		/>
 	);

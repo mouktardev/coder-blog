@@ -63,7 +63,7 @@ export function Page({ article }: Props) {
 				}}
 			>
 				<Image
-					className="w-full h-full"
+					className="w-full h-full rounded-2xl"
 					src={article.image.src}
 					alt={article.image.alt}
 					aspectRatio="portrait"
