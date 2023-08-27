@@ -5,7 +5,7 @@ import { dangerouslySkipEscape, escapeInject } from "vite-plugin-ssr/server";
 import { App } from "./_app";
 import logoUrl from "/vite.svg";
 
-export const passToClient = ["pageProps", "documentProps", "someAsyncProps"];
+export const passToClient = ["pageProps", "documentProps"];
 
 export async function render(pageContext: PageContextServer) {
 	const { Page, pageProps } = pageContext;
@@ -35,11 +35,5 @@ export async function render(pageContext: PageContextServer) {
 
 	return {
 		documentHtml,
-		// See https://vite-plugin-ssr.com/stream#initial-data-after-stream-end
-		// pageContext: async () => {
-		// 	return {
-		// 		someAsyncProps: 42,
-		// 	};
-		// },
 	};
 }

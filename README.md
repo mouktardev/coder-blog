@@ -1,7 +1,8 @@
-# Coder-Blog
+# Coder-Blog <img src="public/vite-plugin-ssr-logo.svg" alt="" width="28"> <img src="public/vite.svg" alt="" width="28">
 
-File based routing, page transition mix SSR + SPA , layouts, pre-render and Generate SSG Dynamic pages, tailwindCSS, Markdown content collection Syntax
-highlighter and more,
+File based routing, SSR + SPA, page transitions, framer motion
+animation, layouts, pre-render and Generate SSG Dynamic pages,
+tailwindCSS, Markdown content collection Syntax highlighter and more.
 
 ### Includes:
 
@@ -20,6 +21,15 @@ highlighter and more,
 - [framer-motion](https://github.com/framer/motion) an open source motion library for React, made by Framer.
 - [nanostores](https://github.com/nanostores/nanostores) an open source state manager.
 
+## Page transition idea:
+
+- Index page Capture the clicked article state of two elements title and image that will be animated in the Dynamic `@post.page.tsx` pages
+- Dashboard layout each page share exit and enter animation
+
+### Page transition bug:
+
+if you refresh `@post.page` the captured element state will initialized to zero which effect the initial animation start.
+
 ## Basic commands
 
 All commands are run from the root of the project, from a terminal:
@@ -35,4 +45,4 @@ All commands are run from the root of the project, from a terminal:
 
 ---
 
-> Threads [@mouktardev](https://www.threads.net/@mouktardev) Twitter [@mouktardev](https://twitter.com/mouktardev)
+> twitter [@mouktardev](https://twitter.com/mouktardev) Threads [@mouktardev](https://www.threads.net/@mouktardev)
