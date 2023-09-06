@@ -9,9 +9,7 @@ export default function ProjectCard({ project }: Porps) {
 			<h1 className="text-lg font-medium leading-9 tracking-tight ">
 				{project.title}
 			</h1>
-			<p className="text-sm">
-				Beautifully designed components built with Radix UI and Tailwind CSS.
-			</p>
+			<p className="text-sm">Insert here description.</p>
 		</div>
 	);
 }
