@@ -1,4 +1,4 @@
-import { Project } from "#/schema/types";
+import { Project } from "#/schema/ArticleSchema";
 
 type Porps = {
 	project: Project;

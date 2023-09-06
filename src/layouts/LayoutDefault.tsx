@@ -14,18 +14,20 @@ export function LayoutDefault({ children }: Props) {
 	const pageContext = usePageContext();
 	const { urlPathname } = pageContext;
 	return (
-		<main className="parent relative w-full max-w-5xl mx-auto">
-			<Loading />
-			<AnimatePresence initial={false} mode="wait">
-				{urlPathname.startsWith("/posts") ? <GoBack /> : <MainMenu />}
-			</AnimatePresence>
-			{urlPathname.startsWith("/projects") ? (
-				<LayoutDashboard url={urlPathname}>{children}</LayoutDashboard>
-			) : (
-				<AnimatePresence initial={false} mode="popLayout">
-					<div key={urlPathname}>{children}</div>
+		<main className="w-screen">
+			<section className="parent relative w-full max-w-5xl mx-auto">
+				<Loading />
+				<AnimatePresence initial={false} mode="wait">
+					{urlPathname.startsWith("/posts") ? <GoBack /> : <MainMenu />}
 				</AnimatePresence>
-			)}
+				{urlPathname.startsWith("/projects") ? (
+					<LayoutDashboard url={urlPathname}>{children}</LayoutDashboard>
+				) : (
+					<AnimatePresence initial={false} mode="popLayout">
+						<div key={urlPathname}>{children}</div>
+					</AnimatePresence>
+				)}
+			</section>
 		</main>
 	);
 }

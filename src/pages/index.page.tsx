@@ -1,6 +1,6 @@
 import ArticleCard from "#/components/ArticleCard";
 import Image from "#/components/Image";
-import { Article } from "#/schema/types";
+import { Article } from "#/schema/ArticleSchema";
 import { motion } from "framer-motion";
 import { Framer } from "lucide-react";
 import ViteSSRlogo from "/vite-plugin-ssr-logo.svg";

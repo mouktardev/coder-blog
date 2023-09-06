@@ -24,7 +24,7 @@ export function toggleSidebar() {
 	open.set(!open.get());
 }
 
-export function setPosition(event: React.MouseEvent<HTMLElement>) {
+export function setInitialPosition(event: React.MouseEvent<HTMLElement>) {
 	const title = event.currentTarget;
 	const titlePosition = title.getBoundingClientRect();
 

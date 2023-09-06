@@ -1,5 +1,5 @@
 import ProjectCard from "#/components/ProjectCard";
-import { Project } from "#/schema/types";
+import { Project } from "#/schema/ArticleSchema";
 
 export function Page({ projects }: { projects: Project[] }) {
 	return (

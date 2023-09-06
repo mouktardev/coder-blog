@@ -1,5 +1,5 @@
-import { Article } from "#/schema/types";
-import { setPosition } from "#/store/store";
+import { Article } from "#/schema/ArticleSchema";
+import { setInitialPosition } from "#/store/store";
 import Image from "./Image";
 import { Link } from "./Link";
 type Props = {
@@ -22,7 +22,7 @@ export default function ArticleCard({ article }: Props) {
 						<Link
 							href={`/posts/${article.slug}`}
 							className="hover:underline underline-offset-8 cursor-pointer"
-							onClick={setPosition}
+							onClick={setInitialPosition}
 							keep-scroll-position="true"
 						>
 							<h1 className="mt-2 text-3xl font-medium tracking-tight">

@@ -1,7 +1,7 @@
 import CodeCopy from "#/components/CodeCopy";
 import Image from "#/components/Image";
 import TableOfContent from "#/components/TableOfContent";
-import { Article } from "#/schema/types";
+import { Article } from "#/schema/ArticleSchema";
 import { elementsCaptured } from "#/store/store";
 import { cn, flatten } from "#/util/util";
 import { useStore } from "@nanostores/react";
