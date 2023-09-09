@@ -1,10 +1,14 @@
-# Coder-Blog <img src="public/vite-plugin-ssr-logo.svg" alt="" width="28"> <img src="public/vite.svg" alt="" width="28">
+# Coder-Blog <img src="public/vite-plugin-ssr-logo.svg" alt="" width="28"> <img src="public/vite.svg" alt="" width="28"> <img src="public/framer-motion.svg" alt="" width="18">
 
-File based routing, SSR + SPA, page transitions, framer motion
-animation, layouts, pre-render and Generate SSG Dynamic pages,
-tailwindCSS, Markdown content collection Syntax highlighter and more.
+Taking inspiration from both **Astro SSG** and the **View Transition API**, my aim with vite-plugin-ssr and React is to gain greater control over scenarios involving shared UI animations between pages. This includes managing factors such as animation duration and easing while gracefully handling loading states during server fetches. This way, we can ensure that slow networks or large data fetches between pages don't compromise the overall animation experience.
 
-### Includes:
+Also using vite-plugin-ssr we have cool features like:
+**File based routing**, **SSR + SPA**, **Page Transitions functions**, **Layouts**, **Pre-rendering**,
+
+As the name suggest wanted to add some small feature such as
+**Markdown content collection**, **Syntax Highlighter**, **Copy Code Blocks**, **generative Table of content and headings**
+
+### Projects Includes:
 
 - [Vite](https://vitejs.dev),
 - [vite-plugin-ssr](https://vite-plugin-ssr.com/) handle all Filesystem Routing, Data fetching, Pre-rendering, Layouts, and more.
@@ -20,15 +24,6 @@ tailwindCSS, Markdown content collection Syntax highlighter and more.
 - [lucide-react](https://lucide.dev/) an open source icon library.
 - [framer-motion](https://github.com/framer/motion) an open source motion library for React, made by Framer.
 - [nanostores](https://github.com/nanostores/nanostores) an open source state manager.
-
-## Page transition idea:
-
-- Index page Capture the clicked article state of two elements title and image that will be animated in the Dynamic `@post.page.tsx` pages
-- Dashboard layout each page share exit and enter animation
-
-### Page transition bug:
-
-if you refresh `@post.page` the captured element state will initialized to zero which effect the initial animation start.
 
 ## Basic commands
 
