@@ -45,49 +45,49 @@ export default function MainMenu() {
 
 	return (
 		<div>
-			<div className="relative flex gap-4 items-center z-50 p-5">
+			<div className="relative z-50 flex items-center gap-4 p-5">
 				<Button ref={scope} onClick={toggleSidebar}>
 					<ul>
 						<motion.li
-							className="w-7 h-[3px] my-2 rounded-full bg-black"
+							className="my-2 h-[3px] w-7 rounded-full bg-black"
 							initial={{ rotate: "45deg", y: 20 }}
 							animate={{ rotate: 0, y: 0 }}
 							transition={{ duration: 0.5, ease: "easeInOut" }}
 						/>
 						<motion.li
-							className="w-7 h-[3px] my-2 rounded-full bg-black"
+							className="my-2 h-[3px] w-7 rounded-full bg-black"
 							initial={{ rotate: "180deg", scaleX: 1.3, x: 12 }}
 							animate={{ rotate: 0, scaleX: 1, x: 0 }}
 							transition={{ duration: 0.5, ease: "easeInOut" }}
 						/>
 						<motion.li
-							className="w-7 h-[3px] my-2 rounded-full bg-black"
+							className="my-2 h-[3px] w-7 rounded-full bg-black"
 							initial={{ rotate: "-45deg", y: -20 }}
 							animate={{ rotate: 0, y: 0 }}
 							transition={{ duration: 0.5, ease: "easeInOut" }}
 						/>
 					</ul>
 				</Button>
-				<p className="text-5xl text-white select-none pointer-events-none">
+				<p className="pointer-events-none select-none text-5xl text-white">
 					Menu
 				</p>
 			</div>
 			{/* navigation full page */}
 			<motion.div
-				className="fixed top-0 left-0 pointer-events-none z-40 w-full h-full bg-gray-950 "
+				className="pointer-events-none fixed left-0 top-0 z-40 h-full w-full bg-gray-950 "
 				variants={PageSlide}
 				initial="exit"
 				animate={isOpen ? "animate" : "exit"}
 			>
-				<div className="w-full max-w-5xl mx-auto p-5">
-					<nav className="w-full max-w-3xl mt-[200px]">
+				<div className="mx-auto w-full max-w-5xl p-5">
+					<nav className="mt-[200px] w-full max-w-3xl">
 						{[
 							{ title: "Articles", href: "/" },
 							{ title: "Projects", href: "/projects" },
 						].map((link, index) => (
 							<Link key={index} href={link.href} onClick={toggleSidebar}>
 								<motion.div
-									className="w-full h-[1px] my-4 bg-white"
+									className="my-4 h-[1px] w-full bg-white"
 									variants={slideInLeft}
 								/>
 								<motion.p
@@ -103,7 +103,7 @@ export default function MainMenu() {
 			</motion.div>
 			{/* navigation bar */}
 			<div className="p-5">
-				<nav className="flex gap-4 items-center border-t">
+				<nav className="flex items-center gap-4 border-t">
 					{[
 						{ title: "Articles", href: "/" },
 						{ title: "Projects", href: "/projects" },
@@ -111,7 +111,7 @@ export default function MainMenu() {
 						<Link
 							key={index}
 							href={Links.href}
-							className="tracking-wider p-2 cursor-pointer"
+							className="cursor-pointer p-2 tracking-wider"
 							activeProps="font-bold border-black border-t-2"
 						>
 							{Links.title}

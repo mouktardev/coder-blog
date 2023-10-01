@@ -21,7 +21,7 @@ export default function ArticleCard({ article }: Props) {
 						<p className="text-sm text-gray-600">{article.date}</p>
 						<Link
 							href={`/posts/${article.slug}`}
-							className="hover:underline underline-offset-8 cursor-pointer"
+							className="cursor-pointer underline-offset-8 hover:underline"
 							onClick={setInitialPosition}
 							keep-scroll-position="true"
 						>

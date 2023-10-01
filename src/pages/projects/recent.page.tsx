@@ -1,7 +1,7 @@
 export function Page() {
 	return (
-		<div className="flex-1 h-full flex justify-center items-center border">
-			<p className="text-2xl uppercase font-thin">recent</p>
+		<div className="flex w-full items-center justify-center">
+			<p className="text-2xl font-thin uppercase">recent</p>
 		</div>
 	);
 }

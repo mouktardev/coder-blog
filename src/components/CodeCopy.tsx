@@ -23,7 +23,7 @@ export default function CodeCopyBtn({ children }: Props) {
 	return (
 		<Button
 			className={cn(
-				"absolute top-3 right-3 p-2 rounded-lg cursor-pointer hover:bg-white/10",
+				"absolute right-3 top-3 cursor-pointer rounded-lg p-2 hover:bg-white/10",
 				copyOk ? "text-green-500" : ""
 			)}
 			onClick={handleClick}

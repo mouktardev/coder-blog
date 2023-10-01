@@ -15,7 +15,7 @@ export function LayoutDefault({ children }: Props) {
 	const { urlPathname } = pageContext;
 	return (
 		<main className="w-screen">
-			<section className="parent relative w-full max-w-5xl mx-auto">
+			<section className="parent relative mx-auto w-full max-w-5xl">
 				<Loading />
 				<AnimatePresence initial={false} mode="wait">
 					{urlPathname.startsWith("/posts") ? <GoBack /> : <MainMenu />}

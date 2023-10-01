@@ -39,6 +39,17 @@ export const PageSlide: Variants = {
 		},
 	},
 };
+export const PageSlideUp: Variants = {
+	initial: { y: "100%" },
+	exit: {
+		y: "-100%",
+		transition: {
+			when: "afterChildren",
+			duration: 0.6,
+			staggerChildren: -1,
+		},
+	},
+};
 
 export const slideInTop: Variants = {
 	initial: { y: -100, opacity: 0, transition: { ease: "easeOut" } },

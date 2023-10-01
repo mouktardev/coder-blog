@@ -25,18 +25,18 @@ export function Page({ articles }: Props) {
 				<h1 className="text-6xl font-medium uppercase leading-tight tracking-tight">
 					Coder - Blog
 				</h1>
-				<Image src={Vitelogo} className="w-8 h-8" />
-				<Image src={ViteSSRlogo} className="w-8 h-8" />
+				<Image src={Vitelogo} className="h-8 w-8" />
+				<Image src={ViteSSRlogo} className="h-8 w-8" />
 				<Framer size={28} />
 			</div>
-			<p className="text-justify text-xl max-w-2xl leading-7 tracking-wide mt-6">
+			<p className="mt-6 max-w-2xl text-justify text-xl leading-7 tracking-wide">
 				File based routing, SSR + SPA, page transitions, framer motion
 				animation, layouts, pre-render and Generate SSG Dynamic pages,
 				tailwindCSS, Markdown content collection Syntax highlighter and more.
 			</p>
 			<div className="mt-16 pb-32">
 				<ArticleCard article={articles[0]} />
-				<div className="mt-24 grid lg:grid-cols-3 gap-8">
+				<div className="mt-24 grid gap-8 lg:grid-cols-3">
 					{articles.map((article, i) => (
 						<ArticleCard key={i} article={article} />
 					))}

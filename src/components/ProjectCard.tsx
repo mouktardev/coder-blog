@@ -5,7 +5,7 @@ type Porps = {
 };
 export default function ProjectCard({ project }: Porps) {
 	return (
-		<div className="@container bg-white rounded-md shadow-md border p-5">
+		<div className="rounded-md border bg-white p-5 shadow-md @container">
 			<h1 className="text-lg font-medium leading-9 tracking-tight ">
 				{project.title}
 			</h1>

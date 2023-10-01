@@ -21,6 +21,9 @@ export const Button = React.forwardRef(
 				type="button"
 				ref={ref}
 				variants={pushButton}
+				initial={false}
+				animate={pressing ? "pressed" : "unpressed"}
+				transition={{ type: "spring", duration: 0.3, bounce: 0.5 }}
 				onTapStart={() => {
 					setPressing(true);
 					onStart;
@@ -31,11 +34,8 @@ export const Button = React.forwardRef(
 				onTapCancel={() => {
 					setPressing(false);
 				}}
-				animate={pressing ? "pressed" : "unpressed"}
-				initial={false}
-				transition={{ type: "spring", duration: 0.3, bounce: 0.5 }}
 				className={cn(
-					"rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+					"focus-visible:ring-ring cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-1",
 					className
 				)}
 				{...props}

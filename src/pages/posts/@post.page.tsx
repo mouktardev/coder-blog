@@ -5,7 +5,7 @@ import { Article } from "#/schema/ArticleSchema";
 import { elementsCaptured } from "#/store/store";
 import { cn, flatten } from "#/util/util";
 import { useStore } from "@nanostores/react";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import React, { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -34,6 +34,7 @@ const HeadingRenderer = (props: HeadingRendererProps) => {
 const transition = { duration: 1.4, ease: [0.6, 0.01, 0.5, 0.9] };
 
 export function Page({ article }: Props) {
+	const { scrollYProgress } = useScroll();
 	const { image, title } = useStore(elementsCaptured);
 	return (
 		<motion.div
@@ -44,10 +45,14 @@ export function Page({ article }: Props) {
 			}}
 		>
 			<motion.div
+				className="fixed left-0 right-0 top-0 z-50 h-2 w-full origin-left bg-black"
+				style={{ scaleX: scrollYProgress }}
+			/>
+			<motion.div
 				className="absolute z-50"
-				onAnimationStart={() =>
-					window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-				}
+				// onAnimationStart={() =>
+				// 	window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+				// }
 				initial={{
 					top: image.top + "px",
 					left: image.left + "px",
@@ -63,7 +68,7 @@ export function Page({ article }: Props) {
 				}}
 			>
 				<Image
-					className="w-full h-full rounded-2xl"
+					className="h-full w-full rounded-2xl"
 					src={article.image.src}
 					alt={article.image.alt}
 					aspectRatio="portrait"
@@ -97,7 +102,7 @@ export function Page({ article }: Props) {
 				}}
 				className="relative h-[300px] bg-gradient-to-l from-pink-800 to-purple-800"
 			/>
-			<div className="w-full h-[300px]" />
+			<div className="h-[300px] w-full" />
 			<motion.div
 				className="relative flex gap-6"
 				initial={{ y: 100, opacity: 0 }}
@@ -108,7 +113,7 @@ export function Page({ article }: Props) {
 				}}
 			>
 				<TableOfContent />
-				<div className="w-full p-5 text-justify prose prose-a:no-underline prose-a:bg-black/30 prose-p:font-medium prose-p:tracking-wide prose-p:leading-7 prose-h3:font-normal prose-h2:font-medium prose-sm md:prose-lg prose-pre:bg-[rgba(40,44,52,1)] border rounded-lg">
+				<div className="prose prose-sm w-full rounded-lg border p-5 text-justify md:prose-lg prose-h2:font-medium prose-h3:font-normal prose-p:font-medium prose-p:leading-7 prose-p:tracking-wide prose-a:bg-black/30 prose-a:no-underline prose-pre:bg-[rgba(40,44,52,1)]">
 					<ReactMarkdown
 						children={article.content}
 						components={{

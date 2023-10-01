@@ -11,7 +11,7 @@ export const Loading = () => {
 
 	return (
 		<motion.div
-			className="fixed z-40 w-full h-screen top-0 left-0 bg-white/20 bg-center bg-[length:100px_100px] bg-no-repeat bg-[url('/loading.svg')] origin-center "
+			className="fixed left-0 top-0 z-40 h-screen w-full origin-center bg-white/20 bg-[url('/loading.svg')] bg-[length:100px_100px] bg-center bg-no-repeat "
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}

@@ -1,4 +1,4 @@
-import { Fade, WidthLeft, slideInLeft } from "#/util/animation";
+import { Fade, WidthLeft } from "#/util/animation";
 import { cn } from "#/util/util";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, Clock, Folder } from "lucide-react";
@@ -18,15 +18,15 @@ export function LayoutDashboard({ children, url }: Props) {
 		[]
 	);
 	return (
-		<div className="w-full max-w-5xl mx-auto flex gap-4 p-5">
+		<div className="mx-auto flex w-full max-w-5xl gap-4 p-5">
 			<motion.aside
-				className="sticky flex flex-col inset-y-0 overflow-hidden p-2 border"
+				className="sticky inset-y-0 flex flex-col overflow-hidden border p-2"
 				variants={WidthLeft}
 				initial="initial"
 				animate={showSidebar ? "animate" : "exit"}
 			>
 				<Button
-					className="w-10 h-10 border ml-auto mb-6 px-2"
+					className="mb-6 ml-auto h-10 w-10 border px-2"
 					onClick={toggleSidebar}
 				>
 					<motion.div
@@ -47,13 +47,13 @@ export function LayoutDashboard({ children, url }: Props) {
 							href={item.href}
 							className={cn(
 								index === 0 && "border-b",
-								"flex items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60 cursor-pointer"
+								"flex cursor-pointer items-center gap-4 p-2 hover:bg-gray-300/60 dark:hover:bg-gray-950/60"
 							)}
 							activeProps="font-bold"
 						>
 							<item.icon size={20} />
 							<motion.p
-								className="tracking-wide text-sm"
+								className="text-sm tracking-wide"
 								variants={Fade}
 								animate={showSidebar ? "exit" : "animate"}
 							>
@@ -63,18 +63,23 @@ export function LayoutDashboard({ children, url }: Props) {
 					))}
 				</nav>
 			</motion.aside>
-			<AnimatePresence initial={false} mode="wait">
-				<motion.div
-					key={url}
-					className="flex-1 bg-neutral-100"
-					variants={slideInLeft}
-					initial="initial"
-					animate="animate"
-					exit="exit"
-				>
-					{children}
-				</motion.div>
-			</AnimatePresence>
+			<aside className="flex flex-1 items-center justify-center overflow-hidden border bg-neutral-100">
+				<AnimatePresence initial={false} mode="popLayout">
+					<motion.div
+						initial={{ y: "100%", opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						exit={{ y: "-100%", opacity: 0 }}
+						transition={{
+							duration: 0.4,
+							ease: [0.6, 0.01, 0.5, 0.9],
+						}}
+						key={url}
+						className="w-full"
+					>
+						{children}
+					</motion.div>
+				</AnimatePresence>
+			</aside>
 		</div>
 	);
 }

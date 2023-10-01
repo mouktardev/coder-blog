@@ -3,7 +3,7 @@ import { Project } from "#/schema/ArticleSchema";
 
 export function Page({ projects }: { projects: Project[] }) {
 	return (
-		<div className="grid lg:grid-cols-3 h-full gap-4 border p-5">
+		<div className="grid w-full gap-4 p-5 lg:grid-cols-3">
 			{projects.map((project, index) => (
 				<ProjectCard key={index} project={project} />
 			))}

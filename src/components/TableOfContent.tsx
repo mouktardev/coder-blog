@@ -45,13 +45,13 @@ export default function TableOfContent() {
 	}, []);
 
 	return (
-		<ul className="sticky w-64 h-full top-44 overflow-auto p-4 space-y-5 border rounded-lg">
+		<ul className="sticky top-44 h-full w-64 space-y-5 overflow-auto rounded-lg border p-4">
 			{headings.map((heading) => (
 				<li
 					key={heading.id}
 					className={cn(
 						heading.level === 2 ? "font-medium" : "",
-						"flex gap-2 items-center hover:text-purple-400"
+						"flex items-center gap-2 hover:text-purple-400"
 					)}
 				>
 					{heading.level === 3 && <ChevronRight size={20} />}
@@ -59,9 +59,14 @@ export default function TableOfContent() {
 						href={`#${heading.id}`}
 						onClick={(e) => {
 							e.preventDefault();
-							document.querySelector(`#${heading.id}`)?.scrollIntoView({
-								behavior: "smooth",
-							});
+							const targetElement = document.querySelector(`#${heading.id}`);
+							if (targetElement) {
+								targetElement.scrollIntoView({
+									behavior: "smooth",
+								});
+								// Update the URL in the address bar
+								window.history.pushState({}, "", `#${heading.id}`);
+							}
 						}}
 					>
 						{heading.text}
