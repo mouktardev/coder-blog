@@ -12,6 +12,28 @@
 			"calt" 1;
 	}
 }
+
+/* .content-grid {
+	display: grid;
+	grid-template-columns:
+		[full-width-start breakout-left-start] minmax(1rem, 1fr)
+		[content-start breakout-right-start] min(100% - 2rem, 60rem)
+		[content-end breakout-left-end] minmax(1rem, 1fr)
+		[breakout-right-end full-width-end];
+}
+
+.content-grid > *,
+.full-width {
+	grid-column: content;
+}
+
+.content-grid > .full-width {
+	grid-column: full-width;
+
+	display: grid;
+	grid-template-columns: inherit;
+} */
+
 @font-face {
 	font-family: "PPNeueMontreal";
 	src: url("./fonts/PPNeueMontreal-Bold.otf") format("opentype");

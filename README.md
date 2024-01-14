@@ -8,7 +8,7 @@ Also using vite-plugin-ssr we have cool features like:
 As the name suggest wanted to add some small feature such as
 **Markdown content collection**, **Syntax Highlighter**, **Copy Code Blocks**, **generative Table of content and headings**
 
-### Projects Includes:
+## Projects Includes:
 
 - [Vite](https://vitejs.dev),
 - [vite-plugin-ssr](https://vite-plugin-ssr.com/) handle all Filesystem Routing, Data fetching, Pre-rendering, Layouts, and more.

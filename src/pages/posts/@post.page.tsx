@@ -10,6 +10,8 @@ import React, { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 type Props = {
 	article: Article;
@@ -45,7 +47,7 @@ export function Page({ article }: Props) {
 			}}
 		>
 			<motion.div
-				className="fixed left-0 right-0 top-0 z-50 h-2 w-full origin-left bg-black"
+				className="fixed left-0 right-0 top-0 z-50 h-2 w-full origin-left bg-purple-800"
 				style={{ scaleX: scrollYProgress }}
 			/>
 			<motion.div
@@ -113,8 +115,11 @@ export function Page({ article }: Props) {
 				}}
 			>
 				<TableOfContent />
-				<div className="prose prose-sm w-full rounded-lg border p-5 text-justify md:prose-lg prose-h2:font-medium prose-h3:font-normal prose-p:font-medium prose-p:leading-7 prose-p:tracking-wide prose-a:bg-black/30 prose-a:no-underline prose-pre:bg-[rgba(40,44,52,1)]">
+				<div className="prose prose-sm w-full rounded-lg border p-5 text-justify md:prose-lg prose-h2:font-medium prose-h3:font-normal prose-p:leading-7 prose-p:tracking-wide prose-a:bg-black/30 prose-a:no-underline prose-pre:bg-[rgba(40,44,52,1)]">
 					<ReactMarkdown
+						remarkPlugins={[remarkGfm]}
+						//@ts-ignore ignore rehype typescript error
+						rehypePlugins={[rehypeRaw]}
 						children={article.content}
 						components={{
 							h3: HeadingRenderer,

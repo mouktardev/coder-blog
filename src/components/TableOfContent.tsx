@@ -45,7 +45,7 @@ export default function TableOfContent() {
 	}, []);
 
 	return (
-		<ul className="sticky top-44 h-full w-64 space-y-5 overflow-auto rounded-lg border p-4">
+		<ul className="sticky top-44 h-full w-64 space-y-5 overflow-auto rounded-lg border p-4 backdrop-blur-lg">
 			{headings.map((heading) => (
 				<li
 					key={heading.id}

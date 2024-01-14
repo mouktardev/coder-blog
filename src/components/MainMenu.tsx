@@ -102,23 +102,21 @@ export default function MainMenu() {
 				</div>
 			</motion.div>
 			{/* navigation bar */}
-			<div className="p-5">
-				<nav className="flex items-center gap-4 border-t">
-					{[
-						{ title: "Articles", href: "/" },
-						{ title: "Projects", href: "/projects" },
-					].map((Links, index) => (
-						<Link
-							key={index}
-							href={Links.href}
-							className="cursor-pointer p-2 tracking-wider"
-							activeProps="font-bold border-black border-t-2"
-						>
-							{Links.title}
-						</Link>
-					))}
-				</nav>
-			</div>
+			<nav className="flex items-center gap-4 border-t">
+				{[
+					{ title: "Articles", href: "/" },
+					{ title: "Projects", href: "/projects" },
+				].map((Links, index) => (
+					<Link
+						key={index}
+						href={Links.href}
+						className="cursor-pointer p-2 tracking-wider"
+						activeProps="font-bold border-black border-t-2"
+					>
+						{Links.title}
+					</Link>
+				))}
+			</nav>
 		</div>
 	);
 }

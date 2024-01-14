@@ -15,7 +15,7 @@ const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 export function Page({ articles }: Props) {
 	return (
 		<motion.div
-			className="relative mx-auto w-full max-w-5xl p-5"
+			className="relative mx-auto w-full max-w-5xl"
 			initial={{ x: "-100%", opacity: 1 }}
 			animate={{ x: 0, opacity: 1 }}
 			exit={{ opacity: 0 }}
@@ -29,7 +29,7 @@ export function Page({ articles }: Props) {
 				<Image src={ViteSSRlogo} className="h-8 w-8" />
 				<Framer size={28} />
 			</div>
-			<p className="mt-6 max-w-2xl text-justify text-xl leading-7 tracking-wide">
+			<p className="max-w-2xl bg-neutral-500 py-10 text-2xl font-medium leading-7 tracking-wide shadow-[0_0_0_100vmax_rgb(115,115,115,1)] clip-path-inset-[0_-100vmax]">
 				File based routing, SSR + SPA, page transitions, framer motion
 				animation, layouts, pre-render and Generate SSG Dynamic pages,
 				tailwindCSS, Markdown content collection Syntax highlighter and more.
